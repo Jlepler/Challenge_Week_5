@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+
 </head>
+<div>
+    <div th:insert="base :: navbar"></div>
+</div>
 <body>
 
-<a href="/add">Post a Message</a><br />
-    <div th:each="messege : ${messages}">
-        <h1 th:inline="text">Posted By: [[${message.postedBy}]]</h1>
-        <h2 th:inline="text">[[${message.title}]]"></h2>
-        <h5 th:inline="text">Message: [[${message.content}]]</h5>
-        <h6 th:datetime="${message.postedDate}"></h6>
+<a href="/add">Post a Message</a><br/>
 
+<div class="card-container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div th:each="message : ${messages}" class="card" style="width: 18rem; position: relative">
+                <div class="card-body">
+                    <h3 class="card-title" th:inline="text">Posted By: [[${message.postedBy}]]</h3>
+                    <h4 class="card-text" th:inline="text">[[${message.title}]]"</h4>
+                    <h5 th:inline="text">Message: [[${message.content}]]</h5>
+                    <h6 th:inline="text">Posted on: [[${message.postedDate}]]</h6><br/>
+                    <p>
+                        <a class="btn btn-primary" th:href="@{/update/{id}(id=${message.id})}">Update</a>
+                        <a class="btn btn-primary" th:href="@{/detail/{id}(id=${message.id})}">Details</a>
+                        <a class="btn btn-primary" th:href="@{/delete/{id}(id=${message.id})}">Delete</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div th:insert="base :: javascript"></div>
 </body>
+
 </html>

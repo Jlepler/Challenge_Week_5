@@ -34,7 +34,7 @@ public class HomeController {
     public String processMessage(@Valid Message message,
                                 BindingResult result){
         if (result.hasErrors()){
-            return "messageForm";
+            return "messageform";
         }
         messageRepository.save(message);
         return("redirect:/");
@@ -50,7 +50,7 @@ public class HomeController {
     @RequestMapping("/update/{id}")
     public String updateMessage(@PathVariable("id") long id, Model model){
         model.addAttribute("message", messageRepository.findById(id).get());
-        return "redirect:/";
+        return "messageform";
     }
 
     @RequestMapping("/delete/{id}")

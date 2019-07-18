@@ -1,0 +1,19 @@
+body {
+    background-image: url("https://res.cloudinary.com/jleplerwt/image/upload/v1563470609/WeeklyChallengeimages/crowd-background_fo1ft9.jpg");
+    background-size: cover;
+}
+
+.container {
+    position: center;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.post-label {
+    color: floralwhite;
+}
+
+.navbar {
+    position: relative;
+}

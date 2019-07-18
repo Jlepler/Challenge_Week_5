@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,20 +27,12 @@ public class Message {
     private String content;
 
     @NotNull
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MMM/yyyy")
-    private Date postedDate;
+    private String postedDate;
 
     @NotNull
     @Size(min=3,max=20)
     private String postedBy;
 
-    public Message(String title, String content, @NotNull Date postedDate, @NotNull @Size(min = 3, max = 20) String postedBy) {
-        this.title = title;
-        this.content = content;
-        this.postedDate = postedDate;
-        this.postedBy = postedBy;
-    }
 
     public Message() {
     }
@@ -71,11 +61,11 @@ public class Message {
         this.content = content;
     }
 
-    public Date getPostedDate() {
+    public String getPostedDate() {
         return postedDate;
     }
 
-    public void setPostedDate(Date postedDate) {
+    public void setPostedDate(String postedDate) {
         this.postedDate = postedDate;
     }
 
