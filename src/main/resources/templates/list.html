@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/add">Post a Message</a><br />
+    <div th:each="messege : ${messages}">
+        <h1 th:inline="text">Posted By: [[${message.postedBy}]]</h1>
+        <h2 th:inline="text">[[${message.title}]]"></h2>
+        <h5 th:inline="text">Message: [[${message.content}]]</h5>
+        <h6 th:datetime="${message.postedDate}"></h6>
+
+
+</body>
+</html>
