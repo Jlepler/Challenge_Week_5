@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <a href="/add">Post a Message</a><br />
     <div th:each="messege : ${messages}">
         <h1 th:inline="text">Posted By: [[${message.postedBy}]]</h1>
