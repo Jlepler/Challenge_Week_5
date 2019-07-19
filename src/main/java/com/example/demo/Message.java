@@ -23,7 +23,7 @@ public class Message {
     private String title;
 
     @NotNull
-    @Size(min=1,max=140)
+    @Size(min=1,max=200)
     private String content;
 
     @NotNull
@@ -33,6 +33,12 @@ public class Message {
     @Size(min=3,max=20)
     private String postedBy;
 
+    public Message(@NotNull @Size(min = 4, max = 20) String title, @NotNull @Size(min = 1, max = 140) String content, @NotNull String postedDate, @NotNull @Size(min = 3, max = 20) String postedBy) {
+        this.title = title;
+        this.content = content;
+        this.postedDate = postedDate;
+        this.postedBy = postedBy;
+    }
 
     public Message() {
     }
